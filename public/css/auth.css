@@ -1,0 +1,67 @@
+main
+{
+    height: 95%;
+    width: 100%;
+    background-image: url("https://wallpaperaccess.com/full/2224392.png")
+}
+
+.container
+{
+    background-color: rgba(255, 255, 255, 0.344);
+    width: 30%;
+    height: 100%;
+    padding: 50px;
+    font-size: 18px;
+    display: grid;
+    align-items: stretch;
+}
+h1
+{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+form{margin-top: 40px;}
+input
+{
+    width: 100%;
+    margin-bottom: 25px;
+    height: 30px;
+    padding: 5px;
+    font-size: 18px;
+    border: none;
+}
+.btn
+{
+    margin-top: 12px;
+    width: 100%;
+    text-align: center;
+}
+.line
+{
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+.guide
+{
+    height:45px;
+    margin-bottom: 10px;
+}
+.guide .tooltip-txt
+{
+    visibility: collapse;
+    width: 200px;
+    background-color: white;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    padding: 5px;
+    border-radius: 8px;
+    margin: 10px;
+}
+.guide:hover .tooltip-txt {visibility: visible;}
+p
+{
+    color: white;
+    text-align:center
+}

@@ -1,0 +1,26 @@
+extends ../includes/main-layout.pug
+
+block info 
+    link(rel="stylesheet", href="/css/choose-group.css")
+block mainBody
+    main
+        .list
+            if channels.length > 0
+                if errMsg.length > 0
+                    .errors
+                        each msg in errMsg
+                            p.errMsg #{msg}
+                h1 Choose a channel
+                form(action="/choose-group", method="POST")
+                    p
+                        input(type="text", list="channelnames", name="channelName", autocomplete="off", placeholder="Type channel name")
+                    input(type="hidden", value=csrfToken, name="_csrf")
+                    datalist#channelnames
+                        each channel in channels 
+                            option(value=channel.name) 
+                    p
+                        input(type="password", name="password", placeholder="Type Password")
+                    p 
+                        button.primary(type="submit") JOIN
+            else 
+                p There are no channels for you to join at the moment.

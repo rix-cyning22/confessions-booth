@@ -1,0 +1,57 @@
+main
+{
+    display: grid;
+    justify-content: center;
+    padding-top: 50px;
+}
+.line
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+.field
+{
+    height: 30px;
+    width: 95%;
+    padding: 0px 10px 0px 10px;
+    margin: 0px 20px 10px 10px;
+}
+button
+{
+    margin: 15px;
+    width: 150px;
+    padding: 10px;
+}
+h2{text-align: center;}
+.border{border-top: 2px solid rgba(100, 91, 91, 0.438)}
+p~label{color: rgba(100, 91, 91, 0.629)}
+p > label + input 
+{
+    font-size: 18px;
+    margin: 5px 0px 5px 0px;
+}
+p input{border: 2px solid gray}
+label{margin: 5px 20px 5px 0px}
+.del
+{
+    border: 2px inset rgba(159, 157, 157, 0.659);
+    width: 15px;
+    padding:2px 4px 2px 4px;
+    background-color: rgba(205, 200, 200, 0.863);
+}
+.del:hover
+{
+    cursor: pointer;
+    background-color: rgb(205, 200, 200);
+}
+.crd
+{
+    position: sticky;
+    overflow-y: scroll;
+    height: 450px;
+    padding: 25px 6% 25px 6%;
+    background-color: white;
+    width: 850px;
+}

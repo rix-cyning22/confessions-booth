@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Anon - #{pgTitle}
+        link(rel="stylesheet", href="/css/auth.css")
+        link(rel="stylesheet", href="/css/for-phones.css")
+        link(rel="stylesheet", href="/css/main.css")
+    body
+        main
+            .container 
+                if errMsg.length > 0
+                    .errors
+                        each msg in errMsg
+                            p.errMsg #{msg}
+                h1 SIGN UP
+                form(action="/signup", method="POST")
+                    input(type="hidden", value=csrfToken, name="_csrf")
+                    .guide
+                        input(type="text", name="name", placeholder="What should we call you?", value=oldInput.name, autocomplete="off")
+                        span.tooltip-txt The name cannot have any special characters.
+                    .guide
+                        input(type="email", name="email", placeholder="Enter your email ID", value=oldInput.email, autocomplete="off")
+                        span.tooltip-txt Enter a valid email address.
+                    .guide
+                        input(type="password", name="password", placeholder="Enter your password", autocomplete="off")
+                        span.tooltip-txt The password must have atleast 5 characters.
+                    .guide
+                        input(type="password", name="pconf", placeholder="Confirm your password", autocomplete="off")
+                        span.tooltip-txt Type the password again to confirm.
+                    .btn
+                        button.primary(type="submit") SIGN UP
+                        p
+                            | Already a member? 
+                            a(href="/login") Log in! 

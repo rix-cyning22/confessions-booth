@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^3.1.1",
+    "csurf": "^1.11.0",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "node-datetime": "^2.1.2",
+    "nodemon": "^2.0.18",
+    "pug": "^3.0.2"
+  },
+  "name": "anonymous",
+  "version": "0.0.1",
+  "description": "anonymous messaging web app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start:dev": "nodemon app.js"
+  },
+  "author": "ayar-munkho_jee1304",
+  "license": "ISC"
+}

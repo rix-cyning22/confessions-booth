@@ -1,0 +1,44 @@
+extends ../includes/main-layout.pug
+
+block info 
+    link(rel="stylesheet", href="/css/feed.css")
+
+block mainBody 
+    main
+        .logo
+            .details
+                h2 #{chnlDet.name}
+                a#drop-control(onclick="drop()") 
+                    b(style="font-size: 10px") \/
+            #info.hide
+                img(src=chnlDet.imgURL)
+                .text-wrapper
+                    p.left(style="color:gray") Channel Details
+                    p(style="font-size:24px") #{chnlDet.details}
+                    p.right
+                        b created on #{chnlDet.time} 
+        if msgs.length > 0
+            .messages 
+                each msg in msgs.reverse()
+                    .msg.parent
+                        if (msg.userID && msg.userID.equals(chnlDet.adminId))
+                            b Admin: <br>
+                        | #{msg.content} 
+                        .text-line
+                            if (msg.userID)
+                                a(id = "reply-btn-" + msg._id, onclick= "reply('" + msg._id + "')") REPLY
+                            | posted on #{msg.time}         
+                        if msg.replies.length > 0
+                            h3 Replies:
+                            each reply, replyIndex in msg.replies
+                                .msg.child
+                                    h3 ##{replyIndex+1}
+                                    | #{reply.content}
+                                    .text-line replied on #{reply.time}
+        .text-bar
+            form(action="/confess/" + chnlDet._id, method="POST")
+                input(type="hidden", value=csrfToken, name="_csrf")
+                input(type="hidden", name="_repliedTo")#reply
+                textarea(type="text", name="confessTxt", placeholder="Share your thoughts to the world.")#cnfs
+                button.primary(type="submit") SEND  
+    script(type="text/javascript", src="/js/ux.js") 

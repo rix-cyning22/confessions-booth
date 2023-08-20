@@ -1,0 +1,28 @@
+.list
+{
+    width: 600px;
+    overflow-y: scroll;
+    position: sticky;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: white;
+    height: 300px;
+    margin: 20px;
+}
+main
+{
+    display: grid;
+    justify-content: center;
+}
+h1
+{
+    text-align: center;
+    border-bottom: 3px solid gray;
+    margin-top: 25px
+}
+input
+{
+    margin-bottom: 15px;
+    width: 400px;
+}
+form{margin: 25px}

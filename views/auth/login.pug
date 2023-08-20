@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Anon - #{pgTitle}
+        link(rel="stylesheet", href="/css/auth.css")
+        link(rel="stylesheet", href="/css/for-phones.css")
+        link(rel="stylesheet", href="/css/main.css")
+    body
+        main
+            .container 
+                if errMsg.length > 0
+                    .errors
+                        each msg in errMsg
+                            p.errMsg #{msg}
+                h1 LOGIN 
+                form(action="/login", method="POST")
+                    input(type="hidden", value=csrfToken, name="_csrf")
+                    .guide
+                        input(type="email", name="email", placeholder="Enter your email ID", value=oldInput.email, autocomplete="off")
+                        span.tooltip-txt Enter a valid email ID.
+                    .guide
+                        input(type="password", name="password", placeholder="Enter your password", autocomplete="off")
+                        span.tooltip-txt Enter the password.
+                    .btn
+                        button.suxes(type="submit") LOG IN
+                        p 
+                            | New to Anon? 
+                            a(href="/signup") Sign up!

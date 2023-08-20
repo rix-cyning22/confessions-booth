@@ -1,0 +1,55 @@
+extends ../includes/main-layout.pug
+
+block info 
+    link(rel="stylesheet", href="/css/user-page.css")
+    script(type="text/javascript", src="/js/ux.js")
+    script(type="text/javascript", src="/js/async.js")
+
+block mainBody 
+    main
+        .info-tab#it 
+            if createdChannels.length > 0 || userDetails.mmbIn.length > 0
+                if createdChannels.length > 0
+                    h2#adm-head Groups you created
+                    .linked
+                        each feed, chnlIndex in createdChannels
+                            li.linked(id=feed._id)
+                                a(href="/feed/" + feed._id) #{feed.name}
+                                form(action="/channel-settings/" + feed._id, method="POST")
+                                    input(type="hidden", value=csrfToken, name="_csrf")
+                                    button.danger(type="submit") SETTINGS
+
+                if userDetails.mmbIn.length > 0
+                    h2#mmb-head Groups you are a member in
+                    .linked
+                        each feed in userDetails.mmbIn 
+                            .linked
+                                a(href="/feed/" + feed._id) #{feed.name} 
+                                input(type="hidden", value=feed._id, name="chnlID")
+                                input(type="hidden", value=csrfToken, name="_csrf")
+                                button.danger(onclick="delChnl(this)") LEAVE
+            else 
+                p Groups you create and/or join show up here
+                
+        .profile-info
+            .activity-tab(style="height: auto").centre-align
+                h2 #{userDetails.name}
+                | #{userDetails.email}
+            if activity.length > 0 
+                .activity-tab#act-tab
+                    h2 Your confessions:
+                    .content#cntnt
+                        each event in activity.reverse()
+                            .msg.parent
+                                .time #{event.time} 
+                                | In  
+                                a(href="/feed/" + event.channelID._id) #{event.channelID.name} 
+                                p #{event.content}
+                                each reply, repIndex in event.replies   
+                                    msg.child
+                                        h3 ##{repIndex+1}
+                                        | #{reply.content}
+                                        .time replied on #{reply.time}
+                                input(type="hidden", value=csrfToken, name="_csrf")
+                                input(type="hidden", value=event._id, name="eventName")
+                                button.neuter(style="margin-top: 20px", onclick="delMsg(this)") DELETE 

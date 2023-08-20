@@ -1,0 +1,115 @@
+.text-bar
+{
+    height: 75px;
+    width: 100%;
+    background-color: #9a989b9a;
+    bottom: 0;
+    position: absolute;
+    border-top: 2px solid gray;
+}
+form
+{
+    margin: 10px 50px 10px 50px;
+    padding: 0px 20px 25px 20px;
+    height: 50px;
+    display: flex;
+    align-items: stretch;
+}
+textarea
+{
+    height: inherit;
+    width: 85%;
+    padding: 0px 20px 0px 20px;
+    margin-right: 20px;
+    font-size: 20px;
+}
+button
+{
+    width: 75px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+.messages
+{
+    padding: 20px 50px 0px 50px;
+    margin: 0px 120px 0px 120px;
+    position: sticky;
+    overflow-y: scroll;
+    height: 70%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: #60636898;
+}
+.messages::-webkit-scrollbar {display: none;}
+.text-line
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 40px 0px 40px;
+    color: rgba(60, 60, 60, 0.653);
+    justify-content: space-around;
+}
+.text-line a:hover
+{
+    cursor:pointer;
+    color: rgb(59, 218, 10);
+}
+h3
+{
+    color: gray;
+    margin-bottom: 15px;
+}
+.clicked
+{
+    font-weight: bold;
+    color: black;
+}
+.details
+{
+    position: static;
+    width: inherit;
+    color: white;
+    padding: 50px 60px 10px 60px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+#info
+{
+    width: inherit;
+    justify-content: center;
+    background-repeat: repeat;
+    color: white;
+    background-size: auto;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    height: 500px;
+    overflow-y: scroll;
+    position: sticky;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+#drop-control
+{
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    margin-top: 8px;
+}
+main, .logo
+{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.logo{background-image: linear-gradient(to bottom right, #00000075, #3434347d);}
+#info p{margin-bottom: 10px}
+.text-wrapper
+{
+    margin-top: 50px;
+    padding: 60px 75px 60px 75px;
+}

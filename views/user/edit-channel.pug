@@ -1,0 +1,34 @@
+extends ../includes/main-layout.pug
+
+block info 
+    link(rel = "stylesheet", href = "/css/create-group.css")
+    script(src="/js/ux.js", type="text/javascript") 
+block mainBody
+    main
+        .crd 
+            if errMsg.length > 0
+                .errors
+                    each msg in errMsg
+                        p.errMsg #{msg}
+            h2 Edit channel details
+            form(action="/edit-channel/" + chnlDet._id, method="POST", enctype="multipart/form-data")
+                input(type="hidden", value=csrfToken, name="_csrf")
+                input.field(type="text", placeholder="Enter channel name", name="feedName", value=chnlDet.name)
+                textarea.field(name="details", cols="30", rows="10", value= chnlDet.details, placeholder= "Enter group details")
+                    | #{chnlDet.details}
+                p.left
+                    label(for="#img") Enter the channel logo.
+                    input(type="file", name="imgURL", onchange="changeFile('img')" )#img 
+                    label.del.hide(onclick="removeFile('img')")#del-img x
+                input.field(type="password", placeholder="Edit the channel join-password.")
+                input.field(type="pconf", placeholder="Confirm the channel join-password.")
+                p The group was created on #{chnlDet.time} 
+                .line
+                    button.primary(type="SUBMIT") EDIT GROUP
+            .line.border
+                form(action="del-channel/" + chnlDet._id, method="POST")
+                    input(type="hidden", value=csrfToken, name="_csrf")
+                    button.danger(type="submit") DELETE CHANNEL
+                form(action="leave-channel/" + chnlDet._id, method="POST")
+                    input(type="hidden", value=csrfToken, name="_csrf")
+                    button.danger(type="submit") LEAVE CHANNEL

@@ -1,0 +1,66 @@
+main
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.profile-info{width: 70%;}
+.info-tab
+{
+    border-top: 2px solid gray;
+    background-color: rgb(210, 206, 206);
+    width: 23%;
+    padding-top: 2%;
+    margin: 15px 10px 0px 30px;
+}
+.linked
+{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-bottom: 2px solid gray;
+}
+h2 
+{
+    color: rgb(96, 94, 94);
+    margin: 10px 0px 10px 10px;
+}
+.activity-tab
+{
+    background-color: rgb(210, 206, 206);
+    width: 95%;
+    height: 90%;
+    padding: 10px 10px 15px 5px;
+    margin: 15px 0px 0px 15px;
+}
+.content
+{
+    position: sticky;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    height: 48%;
+    padding-bottom: 100px;
+}
+.activity-tab p, .info-tab p {margin: 10px 20px 15px 20px;}
+.time
+{
+    color: gray;
+    width: inherit;
+    justify-content: right;
+    display: flex;
+    margin: 15px;
+}
+.del-div{margin: 20px 0px 40px 0px}
+.msg a, .info-tab a
+{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    margin: 6px 25px 4px 0px;
+}
+.msg a:hover, .info-tab a:hover
+{
+    font-weight: bold;
+    text-decoration: underline;
+}

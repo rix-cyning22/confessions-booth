@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Anon - #{pgTitle}
+        link(rel="stylesheet", href="/css/main.css")
+        block info
+    body 
+        header 
+            .tabs.left 
+                .tab  
+                    a(href="/") ANON
+            .tabs.right
+                if (isAuthenticated)
+                    .tab 
+                        a(href = "/create-group") Create a Group
+                    .tab 
+                        a(href = "/choose-group") Join a Group
+                    .tab.dropdown
+                        p O_O #{userName}
+                        .dropdown-content
+                            a(href="#") Visit Account Page
+                            a(href="/logout") Log Out
+                else 
+                    .tab
+                        a(href="/login") Log In 
+                    .tab 
+                        a(href="/sign up") Sign Up
+        block mainBody
